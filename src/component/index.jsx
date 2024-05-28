@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./styles.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMoon } from "@fortawesome/free-regular-svg-icons";
+import logo from "./image/Mountain-logo-Design-Graphics-9785421-1-580x435.png";
 
 export default function LoadMoreProducts() {
   const [loading, setLoading] = useState(false);
@@ -18,7 +19,6 @@ export default function LoadMoreProducts() {
       );
       const data = await response.json();
       if (data && data.products && data.products.length) {
-        // console.log(data.products);
         setProducts(data.products);
         setLoading(false);
       }
@@ -39,14 +39,19 @@ export default function LoadMoreProducts() {
   return (
     <div className="container">
       <div className="header">
-        <nav className="navbar">
-          <a href="#">Home</a>
-          <a href="#">Pricing</a>
-          <a href="#">Contact</a>
+        <div className="image-header">
+          <img src={logo} alt="" />
+        </div>
+        <div className="navbar-container">
+          <nav className="navbar">
+            <a href="#">Home</a>
+            <a href="#">Pricing</a>
+            <a href="#">Contact</a>
+          </nav>
           <div>
             <FontAwesomeIcon icon={faMoon} />
           </div>
-        </nav>
+        </div>
       </div>
 
       <div className="products-container">
