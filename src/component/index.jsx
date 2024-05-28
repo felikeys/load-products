@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import "./styles.css";
 
 export default function LoadMoreProducts() {
   const [loading, setLoading] = useState(false);
@@ -40,7 +41,10 @@ export default function LoadMoreProducts() {
           ? products.map((item) => {
               return (
                 <div className="product" key={item.id}>
-                  <img src={item.thumbnail} alt={item.title} />
+                  <div className="img-container">
+                    <img src={item.thumbnail} alt={item.title} />
+                  </div>
+
                   <p>{item.title}</p>
                 </div>
               );
