@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import "./styles.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMoon } from "@fortawesome/free-regular-svg-icons";
 
 export default function LoadMoreProducts() {
   const [loading, setLoading] = useState(false);
@@ -36,6 +38,17 @@ export default function LoadMoreProducts() {
 
   return (
     <div className="container">
+      <div className="header">
+        <nav className="navbar">
+          <a href="#">Home</a>
+          <a href="#">Pricing</a>
+          <a href="#">Contact</a>
+          <div>
+            <FontAwesomeIcon icon={faMoon} />
+          </div>
+        </nav>
+      </div>
+
       <div className="products-container">
         {products && products.length
           ? products.map((item) => {
