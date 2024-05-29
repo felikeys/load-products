@@ -19,7 +19,7 @@ export default function LoadMoreProducts() {
       );
       const data = await response.json();
       if (data && data.products && data.products.length) {
-        setProducts(data.products);
+        setProducts((prevData) => [...prevData, ...data.products]);
         setLoading(false);
       }
     } catch (e) {
@@ -30,7 +30,7 @@ export default function LoadMoreProducts() {
 
   useEffect(() => {
     fetchProducts();
-  }, []);
+  }, [count]);
 
   if (loading) {
     return <div>Loading !! Please wait ...</div>;
@@ -70,7 +70,7 @@ export default function LoadMoreProducts() {
           : null}
       </div>
       <div className="button-container">
-        <button>Load More Product</button>
+        <button onClick={() => setCount(count + 1)}>Load More Product</button>
       </div>
     </div>
   );
